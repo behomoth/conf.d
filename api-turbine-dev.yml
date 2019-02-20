@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: api-turbine
+  http:
+    encoding:
+      force: true
+      force-response: true
+      force-request: true
+    converters:
+      preferred-json-mapper: jackson
+
+server:
+  port: 8766
+
+debug: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        exclude: "*"
+
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka/apps/
+
+turbine:
+  app-config: api-provider , api-config , api-consumer , api-zuul
+  aggregator:
+    cluster-config: API-PROVIDER, API-CONFIG , API-CONSUMER , API-ZUUL
+  cluster-name-expression: default
+

@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: api-consumer
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: mysql#root
+    url: jdbc:mysql://localhost:3306/mydb?characterEncoding=UTF8&serverTimezone=GMT&useUnicode=true&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
+
+
+server:
+  http2:
+    enabled: true
+  port: 8763
+
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka/apps/
+
+debug: true
+
+feign:
+  hystrix:
+    enabled: true
+  okhttp:
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        exclude: "*"

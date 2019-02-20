@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: api-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/behomoth/conf.d
+          default-label: master
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: mysql#root
+    url: jdbc:mysql://localhost:3306/mydb?characterEncoding=UTF8&serverTimezone=GMT&useUnicode=true&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
+
+debug: true
+
+server:
+  port: 8764
+
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka/apps/

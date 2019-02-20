@@ -1,0 +1,33 @@
+server:
+  port: 8761
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      default-zone: http://${eureka.instance.hostname}:${server.port}/eureka/apps/
+
+spring:
+  application:
+    name: api-eureka-server
+  http:
+    encoding:
+      force-request: true
+      force-response: true
+      mapping:
+        en_US: UTF-8
+    converters:
+      preferred-json-mapper: jackson
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: mysql#root
+    url: jdbc:mysql://localhost:3306/mydb?characterEncoding=UTF8&serverTimezone=GMT&useUnicode=true&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
+
+
+debug: true
+
